@@ -38,7 +38,10 @@ defmodule Sling.Mixfile do
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:ecto, "~> 2.2.0"},
+      {:mssql_ecto, "~> 1.2.0"},
+      {:mssqlex, "~> 1.1.0"}
     ]
   end
 

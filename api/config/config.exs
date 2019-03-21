@@ -5,7 +5,7 @@
 # is restricted to this project.
 use Mix.Config
 
-# General application configuration
+#General application configuration
 config :sling,
   ecto_repos: [Sling.Repo]
 
@@ -24,4 +24,20 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+#import_config "#{Mix.env}.exs"
+#import_config "dev.exs"
+
+config :sling, Sling.Repo,
+  adapter:       MssqlEcto,
+  database:      "SlingDB",
+  username:      "sa",
+  password:      "@ihikeallday1",
+  hostname:      "localhost",
+  instance_name: "MSSQLSERVER",
+  port:          "1433",
+  pool_size:     10,
+  odbc_driver: "{ODBC Driver 13 for SQL Server}"
+ # pool: Ecto.Adapters.SQL.Sandbox
+
+
+

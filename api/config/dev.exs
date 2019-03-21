@@ -19,26 +19,40 @@ use Mix.Config
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
-config :sling, Sling.Endpoint,
-  http: [port: 4000],
-  debug_errors: true,
-  code_reloader: true,
-  check_origin: false,
-  watchers: []
+# config :sling, Sling.Endpoint,
+#   http: [port: 4000],
+#   debug_errors: true,
+#   code_reloader: true,
+#   check_origin: false,
+#   watchers: []
 
 
 # Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
+#config :logger, :console, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
-config :phoenix, :stacktrace_depth, 20
+#config :phoenix, :stacktrace_depth, 20
 
-# Configure your database
+# # # Configure your database
+# # config :sling, Sling.Repo,
+# #   adapter: Ecto.Adapters.Postgres,
+# #   username: "postgres",
+# #   password: "postgres",
+# #   database: "sling_dev",
+# #   hostname: "localhost",
+# #   pool_size: 10
+
+
+config :sling, ecto_repos: [Sling.Repo]
+
 config :sling, Sling.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "sling_dev",
-  hostname: "localhost",
-  pool_size: 10
+  adapter:       MssqlEcto,
+  database:      "SlingDB",
+  username:      "sa",
+  password:      "@ihikeallday1",
+  hostname:      "127.0.0.1",
+  instance_name: "MSSQLSERVER",
+  port:          "1433",
+  pool_size:     10,
+  odbc_driver: "{ODBC Driver 13 for SQL Server}"
